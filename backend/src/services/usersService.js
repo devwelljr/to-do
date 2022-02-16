@@ -9,7 +9,9 @@ const creatUser = async ({ username, email, password }) => {
 	const err = { err: { message: 'user exist' } };
 	if (isExist) return err;
 
-	const newUser = await createUser(user);
+	await createUser(user);
+	
+	const newUser = await findByEmail(email);
 	const response = { user: newUser };
 
 	return response;

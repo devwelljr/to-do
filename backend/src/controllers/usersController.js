@@ -11,10 +11,11 @@ const create = rescue(async (req, res) => {
 	const newUser = await creatUser({ username, email, password });
 
 	if (newUser.err) {
+		console.log(newUser.err);
 		return res.status(406).send(newUser.err);
 	}
 
-	return res.status(201).send(newUser);
+	return res.status(201).json({ newUser });
 });
 
 /* Login de um cliente */
@@ -31,7 +32,7 @@ const Login = rescue(async (req, res) => {
 	const payload = { email, password };
 	const token = jwt.sign(payload, process.env.SECRET);
 
-	res.status(200).send(`Seu token para autorizar operações: ${ token }`);
+	res.status(200).json({ token, user: User });
 });
 
 module.exports = { create, Login };

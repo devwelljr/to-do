@@ -9,7 +9,7 @@ const {
 
 const router = express.Router();
 
-router.post("/", registerValidation, create);
+router.post("/register", registerValidation, create);
 
 router.post("/login", loginValidation, Login);
 

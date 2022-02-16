@@ -1,0 +1,25 @@
+.registerContainer {
+    margin: 0 auto;
+    height: 100vh;
+    min-width: 100vh;
+}
+
+.formRegisterConteiner {
+    align-items: center;
+    border: black 1px solid;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    min-width: 100vh;
+}
+
+.formRegister {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    text-align: center;
+}
+
+.formLabel {
+    text-align: center;
+}
