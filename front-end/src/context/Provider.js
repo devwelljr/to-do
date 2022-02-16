@@ -8,11 +8,18 @@ const endpoints = {
   user: {
     register: "http://localhost:3001/users/register",
     login: "http://localhost:3001/users/login",
-  }
+  },
+  task: {
+    create: "http://localhost:3001/tasks",
+    getAll: "http://localhost:3001/tasks/mytasks",
+    update: "http://localhost:3001/tasks/update/",
+    delete: "http://localhost:3001/tasks/delete/",
+  },
 };
 
 function Provider({ children }) {
   const [user, setUser] = useState({});
+  const [tasks, setTasks] = useState([]);
 
   /* Objeto com todas as requisições de usuário */
   const userReqs = {
@@ -22,15 +29,46 @@ function Provider({ children }) {
       axios.post(endpoints.user.register, registerForm),
   };
 
-  /* Objeto com todas as requisições de produtos */
+  /* Objeto com todas as requisições de tasks */
+  const taskReqs = {
+    createSubmit: (task) =>
+      axios.post(
+        endpoints.task.create,
+        {
+          headers: { Authorization: user.token },
+        },
+        task
+      ),
+
+    getAllTasks: () =>
+      axios.get(endpoints.task.getAll, {
+        headers: { Authorization: user.token },
+      }),
+
+    updateSubmit: (id, newDescription) =>
+      axios.put(
+        `${endpoints.task.update}${id}`,
+        {
+          headers: { Authorization: user.token },
+        },
+        newDescription
+      ),
+
+    deleteSubmit: (id) =>
+      axios.delete(`${endpoints.task.update}${id}`, {
+        headers: { Authorization: user.token },
+      }),
+  };
 
   return (
     <Context.Provider
       value={{
-        endpoints,
         user,
         setUser,
+        tasks,
+        setTasks,
         userReqs,
+        taskReqs,
       }}
     >
       {children}

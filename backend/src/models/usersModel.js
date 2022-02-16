@@ -16,7 +16,9 @@ const createUser = async (user) => {
 const loginModel = async (email, password) => {
   const db = await connection();
 
-  const response = await db.collection("users").findOne({ email, password });
+  const response = await db
+    .collection("users")
+    .findOne({ email, password }, { projection: { password: 0 } });
 
   return response;
 };
@@ -25,7 +27,9 @@ const loginModel = async (email, password) => {
 const findByEmail = async (email) => {
   const db = await connection();
 
-  const response = await db.collection("users").findOne({ email });
+  const response = await db
+    .collection("users")
+    .findOne({ email }, { projection: { password: 0 } });
 
   return response;
 };

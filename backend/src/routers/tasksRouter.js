@@ -18,10 +18,10 @@ const router = express.Router();
 
 router.post("/", jwtValidation, createValidation, createTask);
 
-router.get("/", jwtValidation, getTasks);
+router.get("/mytasks", jwtValidation, getTasks);
 
-router.put("/:id", jwtValidation, updateValidation, updateTask);
+router.put("/update/:id", jwtValidation, updateValidation, updateTask);
 
-router.delete("/:id", jwtValidation, deleteTask);
+router.delete("/delete/:id", jwtValidation, deleteTask);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const { ObjectID } = require("mongodb");
+const { ObjectId } = require("mongodb");
 const connection = require("./connection");
 
 const createTask = async (email, description) => {
@@ -14,7 +14,7 @@ const createTask = async (email, description) => {
 const getTasks = async (email) => {
   const db = await connection();
 
-  const tasks = await db.collection("tasks").findMany({ email }).toArray();
+  const tasks = await db.collection("tasks").find({ email }).toArray();
 
   return tasks;
 };
@@ -25,7 +25,7 @@ const updateTask = async (id, newDescription) => {
   const upTask = await db
     .collection("tasks")
     .findOneAndUpdate(
-      { _id: ObjectID(id) },
+      { _id: ObjectId(id) },
       { $set: { description: newDescription } }
     );
 
@@ -35,10 +35,10 @@ const updateTask = async (id, newDescription) => {
 const deleteTask = async (id) => {
   const db = await connection();
 
-  if (ObjectID.isValid(id)) {
+  if (ObjectId.isValid(id)) {
     const deletedTask = await db
       .collection("tasks")
-      .deleteOne({ _id: ObjectID(id) });
+      .deleteOne({ _id: ObjectId(id) });
 
     return deletedTask;
   }

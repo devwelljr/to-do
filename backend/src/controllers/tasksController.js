@@ -9,7 +9,7 @@ const createTask = async (req, res) => {
 
   const { email } = jwt.verify(token, process.env.SECRET);
 
-  const create = await taskModels.createTask(description, email);
+  const create = await taskModels.createTask(email, description);
 
   if (create.err) {
     return res
