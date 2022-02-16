@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const userModel = require("../models/usersModel");
+const usersModel = require("../models/usersModel");
 
 /* Validação do JWT e de usuário */
 module.exports = async (req, res, next) => {
@@ -12,7 +12,7 @@ module.exports = async (req, res, next) => {
   try {
     const { email } = jwt.verify(token, process.env.SECRET);
 
-    const user = await userModel.findByEmail(email);
+    const user = await usersModel.findByEmail(email);
 
     if (!user) {
       return res.status(401).json({ message: "jwt malformed" });
