@@ -48,10 +48,10 @@ function Provider({ children }) {
     updateSubmit: (id, newDescription) =>
       axios.put(
         `${endpoints.task.update}${id}`,
+        newDescription,
         {
           headers: { Authorization: user.token },
-        },
-        newDescription
+        }
       ),
 
     deleteSubmit: (id) =>
