@@ -45,11 +45,15 @@ Este projeto Utiliza o banco de dados MongoDB, para o funcionamento é necessár
 
 ### Login: http://localhost:3000/login
 
-A aplicação começa com o cliente tendo que fazer login ou se cadastrar no `Tarefas Ebyrt`, onde deve gitar seu `usuário` com no mínimo 4 carácteres e sua senha com no mínimo 6 carácteres.
+A aplicação começa com o cliente tendo que fazer login ou se cadastrar no `Tarefas Ebyrt`, onde deve digitar seu `email` e sua senha para ser redirecionado a página de suas tarefas.
 
 ### Cadastro: http://localhost:3000/register
 
 Na tela de cadastro para se criar uma conta o usuário precisa cadastrar seu `usuário` com no mínimo 4 carácteres, sua `senha` com no mínimo 6 carácteres e um `email` válido.
 PS: O `email` é unico no sistema, não sendo possível ter dois usuários com o mesmo email.
+
+### Tarefas: http://localhost:3000/mytasks
+
+Nesta tela o usuário consegue ver sua lista de tarefas e altera-la.
 
 
