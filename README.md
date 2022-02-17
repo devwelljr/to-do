@@ -1,4 +1,4 @@
-# Desafio TXAI
+# Desafio EBYRT
 
 ## Sobre o projeto
 
