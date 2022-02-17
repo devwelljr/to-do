@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import TaskLi from "../components/TaskLi";
+import TaskForm from "../components/TaskForm";
 import Context from "../context/Context";
+import "../styles/userTasks.css";
 
 function ListPage() {
   const { tasks, taskReqs, setTasks } = useContext(Context);
@@ -28,12 +30,12 @@ function ListPage() {
 
   return (
     <main>
-      <h1>To do List</h1>
-      <div>
+      <div className='productsContainer'>
+      <TaskForm />
         {loading ? (
           <span className='display-6 font-weight-normal'>Nenhuma Task</span>
         ) : (
-          <ul>
+          <ul className="list">
             {tasks.map((task, index) => (
               <TaskLi task={task} key={index} />
             ))}

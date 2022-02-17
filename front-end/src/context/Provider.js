@@ -34,10 +34,10 @@ function Provider({ children }) {
     createSubmit: (task) =>
       axios.post(
         endpoints.task.create,
+        task,
         {
           headers: { Authorization: user.token },
         },
-        task
       ),
 
     getAllTasks: () =>
@@ -55,7 +55,7 @@ function Provider({ children }) {
       ),
 
     deleteSubmit: (id) =>
-      axios.delete(`${endpoints.task.update}${id}`, {
+      axios.delete(`${endpoints.task.delete}${id}`, {
         headers: { Authorization: user.token },
       }),
   };

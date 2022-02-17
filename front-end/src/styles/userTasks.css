@@ -1,0 +1,29 @@
+.productsContainer {
+    display: flex;
+    min-height: 100vh;
+    min-width: 100vh;
+}
+
+.formProductsConteiner {
+    background-color: black;
+    color: white;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    justify-content: center;
+    min-width: 25%;
+    max-height: 30%;
+    max-width: 25%;
+    padding: 2%;
+}
+
+.formLabel {
+    text-align: center;
+}
+
+.list {
+    max-width: 75%;
+    min-width: 70%;
+    padding: 2%;
+}
