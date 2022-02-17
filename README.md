@@ -2,10 +2,10 @@
 
 ## Sobre o projeto
 
-Desafio Técnico para processo seletivo, este projeto consiste na implementação de um um sistema de controle de estoque com um login, CRUD de
-produtos e CRUD de usuários.
+Desafio Técnico para processo seletivo, este projeto consiste na implementação de um sistema de lista de tarefas com um login, CRUD de
+tarefas.
 
-Onde feito o login e gerado um token para a autenticação do usuário, pois apenas o próprio usuário pode ver, criar, atualizar e deletar seus produtos em estoque.
+Onde feito o login e gerado um token para a autenticação do usuário, pois apenas o próprio usuário pode ver, criar, atualizar e deletar suas tarefas.
 
 ## Tecnologias Utilizadas
 
